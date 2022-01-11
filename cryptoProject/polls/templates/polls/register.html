@@ -1,0 +1,76 @@
+{% extends 'polls/index.html' %}
+{% load static %}
+{% block content %}
+<title>Sign Up</title>
+
+      <style>
+          html,
+body {
+  weight: 100%;
+  height: auto;
+}
+
+.form-signup {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signup .checkbox {
+  font-weight: 400;
+}
+.form-signup .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signup .form-control:focus {
+  z-index: 2;
+}
+.form-signup input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signup input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.success {
+    color: white;
+}
+      </style>
+{% if success %}
+<div class="success"> {{ success }} </div>
+{% endif %}
+{% if error %}
+<div> {{ error }} </div>
+{% endif %}
+    <form method="POST" action="" class="form-signup">
+      {% csrf_token %}
+      <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+          {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+      <label style="color: #fff;" for="inputname" class="sr-only">Name</label>
+      <input type="text" name="name" id="inputname" class="form-control" placeholder="name" required autofocus>
+      <label style="color: #fff;" for="inputemail" class="sr-only">Email</label>
+      <input type="email" name="email" id="inputemail" class="form-control" placeholder="email" required autofocus>
+      <label style="color: #fff;" for="inputUsername" class="sr-only">Username</label>
+      <input type="text" name="username" id="inputUsername" class="form-control" placeholder="username" required autofocus>
+      <label style="color: #fff;" for="inputPassword1" class="sr-only">Password</label>
+      <input type="password" name="password" id="inputPassword1" class="form-control" placeholder="password" required>
+      <div class="checkbox mb-3">
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    </form>
+{% endblock %}

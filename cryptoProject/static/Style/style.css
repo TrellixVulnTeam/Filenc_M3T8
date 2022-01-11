@@ -1,0 +1,115 @@
+
+body {
+    background-image: url('https://wallpapercave.com/wp/wp9497841.jpg');
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: auto;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+
+}
+
+h1{
+    position: relative;
+    font-size: 70px;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    margin-top: 30vh;
+    color: #fff;
+}
+
+h4{
+    font-family: 'Nunito', sans-serif;
+}
+
+a {
+    text-decoration:none;
+}
+
+.button.encrypt{
+  background-color: #FFB5A7;
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  border-bottom: solid 4px #F4978E;
+  border-radius: 3px;
+}
+
+.button.encrypt:active {
+    border-bottom: none;/*disappears*/
+}
+
+.button.decrypt{
+  background-color: #95D5B2; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  border-bottom: solid 4px #67B99A;
+  border-radius: 3px;
+}
+
+.button.decrypt:active {
+    border-bottom: none;/*disappears*/
+}
+
+.content {
+  width: 100%;
+  text-align: center;
+}
+
+.content input[type=file]{
+	display:none;
+}
+
+.button.browse {
+  background-color: #BDE0FE; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  border-bottom: solid 4px #A2D2FF;
+  border-radius: 3px;
+}
+
+.button.browse:active {
+    border-bottom: none;/*disappears*/
+}
+
+
+.button.process {
+  background-color: #168AAD; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  border-bottom: solid 4px #1A759F;
+  border-radius: 3px;
+}
+
+.button.process:active {
+    border-bottom: none;/*disappears*/
+}
+
+.button.download {
+  background-color: #0077B6; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  border-bottom: solid 4px #023E8A;
+  border-radius: 3px;
+}
+
+.button.download:active {
+    border-bottom: none;/*disappears*/
+}
+
+.aTag {
+    margin: 4vh;
+}
+
+.encButtons{
+    margin: 4vh;
+}
+
+.decButtons {
+    margin: 3vh;
+}

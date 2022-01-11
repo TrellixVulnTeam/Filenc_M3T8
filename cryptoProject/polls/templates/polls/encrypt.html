@@ -1,0 +1,41 @@
+{% extends 'polls/index.html' %}
+{% load static %}
+{% block content %}
+
+<title>Encrypt</title>
+<form method="post" id="submit_button" enctype="multipart/form-data" >
+    {% csrf_token %}
+
+<div id="step2">
+
+    <div class="content if-encrypt">
+        <h1>Upload the file you wish to encrypt</h1>
+        <div class="encButtons">
+
+            <a class="button browse blue">Browse</a>
+            <input type="file" id="encrypt-input" />
+        </div>
+        <h6 style="color: #fff;" class="fileName encrypted"></h6>
+
+    </div>
+</div>
+
+<div id="step3">
+    <div class="content if-encrypt">
+        <div class="encButtons">
+            <input type="password" />
+            <input  class="button process red" type="submit" value="Encrypt!">
+<!--            <a class="button process red">Encrypt!</a>-->
+        </div>
+        <h5 style="color: #fff;" class="message encrypted"></h5>
+    </div>
+</div>
+</form>
+<div id="step4">
+    <div class="content">
+        <div class="encButtons">
+            <a class="button download green">Download</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

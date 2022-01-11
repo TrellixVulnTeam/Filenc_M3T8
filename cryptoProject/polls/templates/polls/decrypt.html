@@ -1,0 +1,40 @@
+{% extends 'polls/index.html' %}
+{% load static %}
+{% block content %}
+
+<title>Decrypt</title>
+<form method="post" id="submit_button" enctype="multipart/form-data" >
+    {% csrf_token %}
+
+<div id="step2">
+    <div class="content if-decrypt">
+        <h1>Upload the file you wish to decrypt</h1>
+        <h4 style="color: #fff;">You can upload only files encrypted by this system</h4>
+        <div class="decButtons">
+            <a class="button browse blue">Browse</a>
+            <input type="file" id="decrypt-input" />
+        </div>
+        <h6 style="color: #fff;" class="fileName decrypted"></h6>
+    </div>
+</div>
+
+<div id="step3">
+    <div class="content if-decrypt">
+        <div class="decButtons">
+            <input type="password" />
+            <input  class="button process red" type="submit" value="Decrypt!">
+<!--            <a class="button process red">Decrypt!</a>-->
+        </div>
+
+        <h5 style="color: #fff;" class="message decrypted"></h5>
+    </div>
+</div>
+<form/>
+<div id="step4">
+    <div class="content">
+        <div class="decButtons">
+            <a class="button download green">Download</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

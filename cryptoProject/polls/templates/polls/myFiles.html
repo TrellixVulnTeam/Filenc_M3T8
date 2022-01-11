@@ -1,0 +1,11 @@
+{% extends 'polls/index.html' %}
+{% load static %}
+{% block content %}
+<title>my enceypted Files</title>
+{% for i in myFiles %}
+            <span style="float: center; margin-left: 15px;">
+                {{ i.file }}
+                <a id="downloadFile" href="{{i.file.url}}">Download</a>
+            </span>
+{% endfor %}
+{% endblock %}
