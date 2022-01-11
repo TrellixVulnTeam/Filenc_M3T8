@@ -18,13 +18,13 @@ def register(request):
         if MyUser.objects.filter(email=request.POST['email']).exists():
             error = "This email is already taken"
             return render(request, 'polls/register.html', {'form': form, 'error': error})
-        password, iv = aes_encrypt(key, request.POST['password'])
+        password_db, iv = aes_encrypt(key, request.POST['password'])
 
-        print(password)
+        #print(password)
         form = RegisterForm(request.POST)
         if form.is_valid():
             new_user = form.save(commit=False)
-            new_user.password = password
+            new_user.password_db = password_db
             new_user.iv = iv
             new_user.key = key
             new_user.save()
@@ -39,25 +39,16 @@ def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password_form = request.POST['password']
-        if MyUser.objects.filter(username=username).exists():
+        if MyUser.objects.filter(username=username).exists() and MyUser.objects.filter(password=password_form).exists():
             user = MyUser.objects.get(username=username)
-            password_db = user.password
-            key_db = user.key
-            iv_db = user.iv
-            password_enc = aes_decrypt(key_db, password_form, iv_db)[0]
+            password_db = user.password_db
             print("password form: " + password_form)
-            print("password DB: " + password_db)
-            password_enc = password_db
-            print("password encryption: "+password_enc)
-            if password_db == password_enc:
-                request.session[
-                    'user_id'] = user.id  # This is a session variable and will remain existing as long as you don't delete this manually or clear your browser cache
-                return redirect('home')
-            else:
-                error = "Password is not correct"
-                return render(request, 'polls/login.html', {'form': form, 'error': error})
+            print("password encrypted: " + password_db)
+            request.session[
+                'user_id'] = user.id  # This is a session variable and will remain existing as long as you don't delete this manually or clear your browser cache
+            return redirect('home')
         else:
-            error = "Username is not correct"
+            error = "Password or Username is not correct"
             return render(request, 'polls/login.html', {'form': form, 'error': error})
     return render(request, 'polls/login.html', {'form': form})
 

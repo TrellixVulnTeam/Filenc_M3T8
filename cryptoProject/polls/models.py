@@ -10,6 +10,7 @@ class MyUser(AbstractUser):
     email = models.EmailField(max_length=500, blank=True)
     username = models.CharField(max_length=255, unique=True, blank=True)
     password = models.CharField(max_length=255, blank=True)
+    password_db = models.CharField(max_length=255, blank=True)
     key = models.CharField(max_length=255, blank=True)
     iv = models.CharField(max_length=255, blank=True)
     #

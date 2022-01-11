@@ -42,7 +42,7 @@ body {
 <title>login</title>
 
 {% if error %}
-<div> {{ error }} </div>
+<div style="color: white;"> {{ error }} </div>
 {% endif %}
     <form method="POST" action="" class="form-signin">
       {% csrf_token %}
